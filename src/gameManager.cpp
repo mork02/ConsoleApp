@@ -1,20 +1,48 @@
 #include "gameManager.h"
 #include <iostream>
-
-CGame_Manager::CGame_Manager()
-{}
+#include <conio.h>
 
 void CGame_Manager::Run()
 {
-	gameloop();
+	Gameloop();
 }
 
-void CGame_Manager::gameloop()
+void CGame_Manager::Gameloop()
 {
 	while (mGameLoop)
 	{
-
+		PollEvent();
+		Update();
+		Render();
 	}
+}
+
+void CGame_Manager::PollEvent()
+{
+	char ch = _getch();
+	if (ch == 'q')
+	{
+		mGameLoop = false;
+	}
+}
+
+void CGame_Manager::ClearScreen()
+{
+	#if defined(_WIN32) || defined(_WIN64)
+		system("cls");
+	#else
+		system("clear");
+	#endif	
+}
+
+void CGame_Manager::Render()
+{
+	ClearScreen();
+
+}
+
+void CGame_Manager::Update()
+{
 }
 
 

@@ -1,19 +1,31 @@
 #pragma once
+#include "event.h"
+
 class CGame_Manager
 {
 public:
-	~CGame_Manager() = default;
-	CGame_Manager();
-
-	static CGame_Manager GetInstance()
+	static CGame_Manager& GetInstance()
 	{
-		CGame_Manager Instance;
+		static CGame_Manager Instance;
 		return Instance;
 	}
+
+	CGame_Manager(const CGame_Manager&) = delete;
+	CGame_Manager& operator=(const CGame_Manager&) = delete;
+	
 	void Run();
+
 private:
-	bool mGameLoop;
-	void gameloop();
+	~CGame_Manager() = default;
+	CGame_Manager() = default;
+
+	kdx::Event Event;
+	bool mGameLoop = true;
+	void Gameloop();
+	void PollEvent();
+	void ClearScreen();
+	void Render();
+	void Update();
 
 };
 
