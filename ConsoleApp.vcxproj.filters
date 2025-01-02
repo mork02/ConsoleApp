@@ -4,14 +4,27 @@
     <Filter Include="Core">
       <UniqueIdentifier>{1e038499-ade5-4107-837f-cb32fb023964}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{9a40047a-5107-4ee2-93a9-5c3c16f016d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameManager.cpp" />
+    <ClCompile Include="src\gameManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\event.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\gameManager.h" />
+    <ClInclude Include="include\gameManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\event.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
